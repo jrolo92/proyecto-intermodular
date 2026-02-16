@@ -1,0 +1,32 @@
+<!-- Cada carrera va a tener este formato  -->
+<!-- Solo va a mostrar los datos de las carreras si la carrera está definida -->
+<ng-container *ngIf="carrera">
+  <ion-card>
+    <!--  -->
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" sizeMd="4">
+        <!-- Data Binding [] e interpolación {{}}  -->
+        <!-- Usamos la etiqueta ion-img para optimizar la carga de imágnees -->
+        <ion-img [src]="carrera.imagenUrl" alt="{{ carrera.titulo }}" class="carrera-img" width="600" height="800"></ion-img>
+      </ion-col>
+      <ion-col size="12" sizeMd="8">
+
+        <ion-card-header>
+          <ion-card-title>{{ carrera.titulo | uppercase }}</ion-card-title>
+          <!-- Nos va a mostrar el titulo de la carrera en mayus-->
+          <ion-card-subtitle>{{ carrera.ubicacion }} - {{ carrera.fecha | date:'fullDate'}}</ion-card-subtitle>
+          <!--Le decimos que muestre la fecha con un formato largo-->
+        </ion-card-header>
+
+        <ion-card-content>
+          <p>{{ carrera.descripcion }}</p>
+          <p><strong>Dificultad:</strong> {{ carrera.dificultad }}</p>
+          <p><strong>Distancia:</strong> {{ carrera.distanciaKm }} km</p>
+          <p><strong>Desnivel:</strong> {{ carrera.desnivelPositivo }} m</p>
+        </ion-card-content>
+        
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+</ng-container>

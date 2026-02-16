@@ -1,0 +1,77 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="--background: transparent; --color: white;">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/folder/inicio" text="" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Detalle de Carrera</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  @if (carrera) {
+    <div class="layout">
+    <div class="poster-container">
+      <img [src]="carrera.imagenUrl || 'assets/images/default-trail.jpg'" alt="Cartel" />
+    </div>
+
+    <div class="info-wrapper">
+      <ion-card class="details-card">
+        <ion-card-header>
+          <div class="title-row">
+            <ion-card-title>{{ carrera.titulo }}</ion-card-title>
+            <ion-badge>
+              {{ carrera.dificultad }}
+            </ion-badge>
+          </div>
+          
+          <ion-card-subtitle class="location">
+            <ion-icon name="location-outline"></ion-icon> 
+            {{ carrera.ubicacion }}
+          </ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          <div class="stats-row">
+            <ion-chip color="primary">
+              <ion-icon name="speedometer-outline"></ion-icon>
+              <ion-label>{{ carrera.distanciaKm }} km</ion-label>
+            </ion-chip>
+            
+            <ion-chip color="primary"> 
+              <ion-icon name="prism-outline"></ion-icon>
+              <ion-label>+{{ carrera.desnivelPositivo }}m</ion-label>
+            </ion-chip>
+
+            <ion-chip color="primary">
+              <ion-icon name="calendar-outline"></ion-icon>
+              <ion-label>{{ carrera.fecha }}</ion-label>
+            </ion-chip>
+          </div>
+ 
+          <div class="description-section">
+            <h3>Sobre esta carrera</h3>
+            <p>{{ carrera.descripcion }}</p>
+          </div>
+
+          <!-- Botones -->
+          <ion-button expand="block" shape="round" color="success" class="ion-margin-top">
+            Inscribirme ahora
+          </ion-button>
+          <ion-button expand="block" shape="round" color="success" class="ion-margin-top" (click)="abrirModalEditar()">
+            Modificar detalles
+          </ion-button>
+          <ion-button expand="block" fill="clear" color="danger" (click)="eliminarCarrera()">
+            <ion-icon name="trash-outline" slot="start"></ion-icon>
+            Eliminar Carrera
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    </div>
+
+  } @else {
+    <div class="loader">
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
+  }
+</ion-content>

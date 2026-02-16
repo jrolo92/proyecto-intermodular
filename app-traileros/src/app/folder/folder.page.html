@@ -1,0 +1,117 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ folder | titlecase }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{ folder | titlecase }}</ion-title> <!-- Lo vamos a poner con la primera en mayúscula-->
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Lo que se muestra en la pagina inicio  -->
+  <ng-container *ngIf="folder === 'inicio'">
+    <div class="ion-padding"> 
+      <h2 *ngIf="nombreUsuario">Hola, {{ nombreUsuario }}</h2> 
+      <h2 *ngIf="!nombreUsuario">Hola, Invitado</h2> 
+    </div>
+  </ng-container>
+
+  <!-- Lo que se mmuestra en la página carreras -->
+  <ion-grid>
+    <ng-container *ngIf="folder === 'carreras'">
+
+      <!-- SKELETON: visible mientras 'cargando' es true -->
+      <ion-grid *ngIf="cargando">
+        <ion-row class="ion-justify-content-center">
+          <!-- Repite 4 skeleton cards -->
+          <ion-col size="12" size-md="6" *ngFor="let i of [1,2,3,4]">
+            <ion-card color="primary">
+              <!-- Imagen skeleton (barra grande) -->
+              <div style="height: 180px; overflow: hidden;">
+                <ion-skeleton-text [animated]="true"
+                  style="width: 100%; height: 100%; display: block;"></ion-skeleton-text>
+              </div>
+
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text>
+                </ion-card-title>
+              </ion-card-header>
+
+              <ion-card-content>
+                <ion-list>
+                  <ion-item lines="none">
+                    <ion-label>
+                      <ion-skeleton-text [animated]="true" style="width: 90%;"></ion-skeleton-text>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item lines="none">
+                    <ion-label>
+                      <ion-skeleton-text [animated]="true" style="width: 70%;"></ion-skeleton-text>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item lines="none">
+                    <ion-label>
+                      <ion-skeleton-text [animated]="true" style="width: 50%;"></ion-skeleton-text>
+                    </ion-label>
+                  </ion-item>
+                </ion-list>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- Contenido real -->
+      <ion-row class="ion-justify-content-center equal-height-row">
+        <ng-container *ngFor="let carrera of listaDeCarreras; let i = index">
+          <ion-col size="12" size-md="6">
+            <ion-card color="primary" (click)="verDetalle(carrera.id)" style="cursor: pointer;">
+              <ion-card-header #tarjetaExterna>
+                <ion-card-title>{{ carrera.titulo }}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content #tarjetaExterna>
+                <app-carrera [carrera]="carrera"></app-carrera>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <!-- Cierre de fila cada 2 elementos -->
+          <div class="w-100" *ngIf="(i + 1) % 2 === 0"></div>
+        </ng-container>
+      </ion-row>
+      <!-- Aquí vamos a añadir el botón para el formulario modal (fuera del for) -->
+      <ion-button expand="block" (click)="abrirModalFormulario()" color="warning">
+        Añadir carrera
+      </ion-button>
+      <app-footer></app-footer>
+    </ng-container>
+  </ion-grid>
+
+  <!-- ABOUT -->
+<ng-container *ngIf="folder === 'about'">
+  <ion-card class="ion-padding">
+    <ion-card-header>
+      <ion-card-title>App Traileros</ion-card-title>
+      <ion-card-subtitle>Versión 1.0</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Aplicación desarrollada para el módulo de Desarrollo de Aplicaciones Híbridas (DAH).</p>
+    </ion-card-content>
+  </ion-card>
+</ng-container>
+
+<!-- AJUSTES -->
+<ng-container *ngIf="folder === 'ajustes'">
+  <!-- <app-ajustes></app-ajustes> -->
+</ng-container>
+
+
+</ion-content> 

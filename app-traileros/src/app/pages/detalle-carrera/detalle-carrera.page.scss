@@ -1,0 +1,125 @@
+// Contenedor que respeta las proporciones del cartel
+.poster-container {
+  width: 100%;
+  min-height: 60vh; // Ocupa al menos el 60% de la pantalla
+  background-color: #1a1a1a; // Fondo oscuro para que el cartel resalte
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh; // Para que no se coma toda la pantalla si es muy largo
+    object-fit: contain; // CLAVE: cartel completo sin recortes
+  }
+}
+
+// Contenedor de la tarjeta (sin solapamiento)
+.info-wrapper {
+  background-color: var(--ion-background-color);
+  margin-top: 0; // Pegado justo donde acaba la imagen
+}
+
+.details-card {
+  margin: 0;
+  border-radius: 20px 20px 0 0; // Redondeado solo arriba para un toque moderno
+  box-shadow: none;
+  border-top: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
+}
+
+// Estructura de la cabecera de la tarjeta
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+
+  ion-card-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin: 0;
+  }
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 1rem;
+}
+
+// Ajuste de los chips para que no se vean "apagados"
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 10px 0;
+
+  ion-chip {
+    margin: 0;
+    font-weight: 600;
+
+    // Esto asegura que el texto se vea bien
+    ion-label {
+      color: currentColor;
+    }
+  }
+}
+
+.description-section {
+  h3 {
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  p {
+    line-height: 1.6;
+    color: var(--ion-color-step-600);
+  }
+}
+
+.loader {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "poster info";
+    gap: 30px;
+    padding: 20px;
+    align-items: start;
+  }
+
+  .poster-container {
+    grid-area: poster;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+  }
+
+  .info-wrapper {
+    grid-area: info;
+    display: flex;
+    justify-content: flex-start;
+
+    .details-card {
+      width: 100%;
+      max-width: 550px;
+      margin: 0;
+    }
+  }
+}

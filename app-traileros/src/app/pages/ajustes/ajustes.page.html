@@ -1,0 +1,27 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Ajustes</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding"> -->
+
+  <!-- Ajustes de apariencia (modo oscuro) -->
+  <ion-list>
+    <ion-list-header>Apariencia</ion-list-header>
+
+    <ion-item>
+      <ion-label>Modo Oscuro</ion-label>
+      <ion-toggle [(ngModel)]="modoOscuro" (ionChange)="cambiarModoOscuro()"></ion-toggle>
+    </ion-item>
+
+  <!-- Ajustes de nombre de usuario -->
+   <!-- IonBlur es un evento que se dispara cuando se pierde el foco en ese input -->
+
+    <ion-list-header>Perfil</ion-list-header> 
+    <ion-item> 
+      <ion-label position="stacked">Tu nombre</ion-label> 
+      <ion-input [(ngModel)]="nombreUsuario" (ionBlur)="guardarNombre()" placeholder="Escribe tu nombre"> </ion-input> 
+    </ion-item> 
+  </ion-list>
+
+<!-- </ion-content> -->

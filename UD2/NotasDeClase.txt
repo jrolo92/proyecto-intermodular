@@ -1,0 +1,20 @@
+Métrica V3 (ASI, DSI, PSI)
+
+La ERS es un subproceso del DSI y contiene dos partes:
+- Requisitos Funcionales (RF): Lo que el sistema debe hacer (A partir de las funcionalidades).
+	· Control de acceso y verificación de usuarios (login).
+	· Sincronización con chips de tiempos.
+
+- Requisitos funcionales (RNF): Cómo debe funcionar (A partir del presupuesto).
+	· Tipo de servidor.
+	· Capacidad de escalabilidad.
+
+Metodologías ágiles de gestión de proyecto (SCRUM).
+
+CASOS DE USO:
+Actores (Sistema I) + RF:
+- Administrador.
+- Vendedor (Organizadores de eventos).
+- Usuarios (Atletas).
+
+Hacer descripción detallada de al menos 3 casos de usos (si no se presenta una aplicación al final al menos se puede hacer una presentación de los casos de usos: poniendo así quedaría el login o tal y cual).

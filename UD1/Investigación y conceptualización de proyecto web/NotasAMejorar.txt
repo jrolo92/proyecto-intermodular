@@ -1,0 +1,16 @@
+29/09/25
+Añadir hosting en análisis de costes.
+Escoger 3 funcionalidades de cada parte (para que no se vaya de madre).
+Tabla comparativa de justificación tecnológica y en función de esto actualizar la viabilidad económica con todos los detalles económicos.
+	Proveedores hosting (&& proveedores computación en la nube.) Ok
+	Lenguajes backend y frontend y BBDD. Ok
+	
+
+Analizar ámbito posible competencia.
+Mantenimiento. Cómo se va a gestionar el mantenimiento de la web (Lo hacemos nosotros no el cliente) --> En mi caso no hay clientes. Actualizaciones, copias de seguridad.
+
+09/10/25  (despliegue de apps)
+Para mi modelo de negocio va mejor un cloud computing ya que es adaptable y puedo contratar mas capacidad en los momentos que mas usuarios se prevea que vayan a acceder, como por ejemplo, después de cada carrera para consultar los datos.
+
+27/10/25
+Revisar coste de nuestras APIS para los usuarios (al menos de 1): Hacer funcionalidades solo para premium.

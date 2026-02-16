@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+ion-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  // Le damos duración a los cambios en la propiedad transform
+  transition: transform 0.2s ease-in-out;
+}
+
+// Cuando se pase el cursor por encima se agranda un 4%
+ion-card:hover {
+  transform: scale(1.04);
+}
